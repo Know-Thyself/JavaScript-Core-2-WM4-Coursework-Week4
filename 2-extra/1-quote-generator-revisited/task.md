@@ -9,8 +9,8 @@ For this task you will return to your quote generator and improve it with "auto-
 - When the switch is OFF
   - ... the generator should NOT change quote automatically
 
-## Hints:
+## Hints
 
-Use https://rot13.com/ to decipher this hint:
+Use <https://rot13.com/> to decipher this hint:
 
 `Pubbfr bar bs frgGvzrbhg be frgVagreiny.`

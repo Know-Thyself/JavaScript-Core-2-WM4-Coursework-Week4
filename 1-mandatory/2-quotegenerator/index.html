@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>Quote Generator</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rye&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -9,9 +14,36 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
-    <!-- Write your HTML in here -->
+    <section class="random-quote-container">
+      <h1 id="header">Quote Generator</h1>
+      <div id="quote-and-author">
+        <h3 class="quote"></h3>
+        <h4 class="author"></h4>
+      </div>
+    </section>
+    <div id="button-container">
+      <div id="awesome-button">
+        <button id="button">
+          New <span style="color: firebrick">Q</span>uote
+        </button>
+        <label class="switch">
+          <input type="checkbox" class="checkbox" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="hidden">
+        <h5 class="hidden-text visible">Auto-play: ON</h5>
+      </div>
+    </div>
     <script src="quotes.js"></script>
   </body>
 </html>

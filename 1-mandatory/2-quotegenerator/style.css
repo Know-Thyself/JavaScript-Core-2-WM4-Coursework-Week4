@@ -1,1 +1,149 @@
 /** Write your CSS in here **/
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Montserrat:wght@300;800&family=Poppins&display=swap");
+body {
+  box-sizing: border-box;
+  background-color: rgb(188, 190, 194);
+}
+
+.random-quote-container {
+  display: block;
+  text-align: center;
+  height: 20em;
+}
+
+h1 {
+  color: rgb(214, 221, 230);
+  padding: 1rem;
+  background-color: rgb(15, 14, 71);
+}
+
+h1::first-letter {
+  color: firebrick;
+}
+
+#quote-and-author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  min-height: 250px;
+  background-color: rgb(83, 6, 6);
+  margin: auto;
+  padding: 24px;
+  border-radius: 1rem;
+}
+
+h3 {
+  font-family: "Rye", cursive;
+  color: rgb(214, 221, 230);
+}
+
+#quote-and-author h4 {
+  color: rgb(214, 221, 230);
+  font-family: "Merriweather", serif;
+  margin-top: 1rem;
+}
+
+#button-container {
+  height: 200px;
+  position: relative;
+  margin-top: 2rem;
+}
+
+#awesome-button {
+  transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+  margin: 0;
+}
+
+#button {
+  margin-top: 25px;
+  padding: 5px;
+  background-color: rgb(15, 14, 71);
+  color: whitesmoke;
+  width: 150px;
+  font-size: 1.25em;
+  border: none;
+  border-radius: 7px;
+}
+
+#button:hover {
+  background-color: rgb(4, 4, 248);
+}
+
+/* Auto-play: ON hide and show */
+.visible {
+  transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  left: 50%;
+  top: 40%;
+  position: absolute;
+  margin: 0;
+  font-size: 1.3em;
+  color: black;
+}
+.hidden-text {
+  display: none;
+}
+
+/* the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  bottom: 7px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(119, 113, 113);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: firebrick;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: rgb(15, 14, 71);
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}

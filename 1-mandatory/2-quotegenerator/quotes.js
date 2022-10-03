@@ -490,3 +490,30 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
+
+const generateQuote = () => {
+  const randomQuote = pickFromArray(quotes);
+  const container = document.getElementById("quote-and-author");
+  const quote = document.querySelector(".quote");
+  quote.innerHTML = `<i class="fa-solid fa-quote-left"></i> ${randomQuote.quote} <i class="fa-solid fa-quote-right" aria-hidden="true"></i>`;
+  const author = document.querySelector(".author");
+  author.innerHTML = `<strong>—</strong> ${randomQuote.author}`;
+};
+
+generateQuote();
+const newQuoteBtn = document.querySelector("#button");
+newQuoteBtn.addEventListener("click", generateQuote);
+
+// auto generate slider checkbox
+const checkBox = document.querySelector(".checkbox");
+const hidden = document.querySelector(".hidden-text");
+let autoGenerate;
+
+checkBox.addEventListener("change", (e) => {
+  hidden.classList.toggle("hidden-text");
+  if (e.target.checked) {
+    autoGenerate = setInterval(generateQuote, 8000);
+  } else {
+    clearInterval(autoGenerate);
+  }
+});

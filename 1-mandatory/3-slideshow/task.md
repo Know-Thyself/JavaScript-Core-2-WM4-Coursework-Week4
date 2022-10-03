@@ -6,7 +6,7 @@ Make a website which allows the user to navigate a set of images (first manually
 
 [Try this live demo!](https://cyf-image-carousel.netlify.app/)
 
-# Level 1 Challenge
+## Level 1 Challenge
 
 Make forward and back buttons to move _manually_ in that direction through a list of at least 4 images.
 
@@ -22,7 +22,7 @@ Level 1 challenge screenshot example.
 
 ![Example Screenshot](./example-screenshots/example-level1.png)
 
-# Level 2 Challenge
+## Level 2 Challenge
 
 Make auto-forward and auto-back buttons to _automatically_ move in that direction through the list of images.
 
@@ -68,7 +68,7 @@ Add the following buttons:
 
 These should allow automatic navigation through the images, say every 5 seconds.
 
-### End of basic challenge!
+### End of basic challenge
 
 Congratulations, you've finished the basics!
 
