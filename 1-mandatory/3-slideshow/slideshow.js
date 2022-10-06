@@ -13,71 +13,75 @@ const wrapper = document.querySelector(".image-wrapper");
 const image = document.createElement("img");
 image.src = images[0];
 wrapper.appendChild(image);
+let currentIndex;
 
-const next = (arr) => {
+const next = (arr, index) => {
   let nextIndex;
-  if (arr.indexOf(image.src) === arr.length - 1) {
+  if (index === arr.length - 1) {
     nextIndex = 0;
   } else {
-    nextIndex = arr.indexOf(image.src) + 1;
+    nextIndex = index + 1;
   }
   return nextIndex;
 };
 
-const previous = (arr) => {
+const previous = (arr, index) => {
   let previousIndex;
-  if (arr.indexOf(image.src) === 0) {
+  if (index === 0) {
     previousIndex = arr.length - 1;
   } else {
-    previousIndex = arr.indexOf(image.src) - 1;
+    previousIndex = index - 1;
   }
   return previousIndex;
 };
 
 const nextBtn = document.querySelector(".next");
 nextBtn.addEventListener("click", () => {
-  image.src = images[next(images)];
+	currentIndex = images.indexOf(image.src);
+  image.src = images[next(images, currentIndex)];
 });
 
 const previousBtn = document.querySelector(".previous");
 previousBtn.addEventListener("click", () => {
-  image.src = images[previous(images)];
+	currentIndex = images.indexOf(image.src);
+  image.src = images[previous(images, currentIndex)];
 });
 
-const autoNext = document.querySelector(".auto-next");
+const autoForwardBtn = document.querySelector(".auto-forward");
 const forwardDelay = document.querySelector(".auto-forward-delay");
 let fwInterval, fwSelectEvent;
-let autoNextEvent = () => {
+let autoForwardEvent = () => {
   forwardDelay.classList.remove("d-none");
   forwardDelay.addEventListener("click", fwSelectEvent);
 };
-autoNext.addEventListener("click", autoNextEvent);
+autoForwardBtn.addEventListener("click", autoForwardEvent);
 
 fwSelectEvent = () => {
-  autoNext.removeEventListener("click", autoNextEvent);
+  autoForwardBtn.removeEventListener("click", autoForwardEvent);
   if (forwardDelay.value !== "delay") {
     fwInterval = setInterval(() => {
-      image.src = images[next(images)];
+			currentIndex = images.indexOf(image.src);
+      image.src = images[next(images, currentIndex)];
     }, forwardDelay.value * 1000);
   }
 };
 
-const autoPrevious = document.querySelector(".auto-previous");
-const backwardDelay = document.querySelector(".auto-back-delay");
-let bwInterval, bwSelectEvent;
-// let previousInterval;
-let autoPreviousEvent = () => {
-  backwardDelay.classList.remove("d-none");
-  backwardDelay.addEventListener("click", bwSelectEvent);
+const autoBackBtn = document.querySelector(".auto-back");
+const backDelay = document.querySelector(".auto-back-delay");
+let backInterval, backSelectEvent;
+let autoBackEvent = () => {
+  backDelay.classList.remove("d-none");
+  backDelay.addEventListener("click", backSelectEvent);
 };
-autoPrevious.addEventListener("click", autoPreviousEvent);
+autoBackBtn.addEventListener("click", autoBackEvent);
 
-bwSelectEvent = () => {
-  autoPrevious.removeEventListener("click", autoPreviousEvent);
-  if (backwardDelay.value !== "delay") {
-    bwInterval = setInterval(() => {
-      image.src = images[previous(images)];
-    }, backwardDelay.value * 1000);
+backSelectEvent = () => {
+  autoBackBtn.removeEventListener("click", autoBackEvent);
+  if (backDelay.value !== "delay") {
+    backInterval = setInterval(() => {
+			currentIndex = images.indexOf(image.src);
+      image.src = images[previous(images, currentIndex)];
+    }, backDelay.value * 1000);
   }
 };
 
@@ -88,11 +92,11 @@ stopBtn.addEventListener("click", () => {
   forwardDelay.removeEventListener("click", fwSelectEvent);
   forwardDelay.value = "delay";
   forwardDelay.className = "d-none";
-  autoNext.addEventListener("click", autoNextEvent);
-  // stop auto-backward
-	clearInterval(bwInterval);
-  backwardDelay.removeEventListener("click", bwSelectEvent);
-  backwardDelay.value = "delay";
-  backwardDelay.className = "d-none";
-  autoPrevious.addEventListener("click", autoPreviousEvent);
+  autoForwardBtn.addEventListener("click", autoForwardEvent);
+  // stop auto-back
+	clearInterval(backInterval);
+  backDelay.removeEventListener("click", backSelectEvent);
+  backDelay.value = "delay";
+  backDelay.className = "d-none";
+  autoBackBtn.addEventListener("click", autoBackEvent);
 });

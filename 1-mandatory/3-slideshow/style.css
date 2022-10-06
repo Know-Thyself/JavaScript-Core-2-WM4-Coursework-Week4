@@ -40,9 +40,9 @@ img {
 select,
 .previous,
 .next,
-.auto-previous,
+.auto-back,
 .stop,
-.auto-next {
+.auto-forward {
 	padding: 0.35em 1.2em;
 	border: 0.1em solid whitesmoke;
 	border-radius: 0.12em;
@@ -57,9 +57,9 @@ select,
 }
 .previous:hover,
 .next:hover,
-.auto-previous:hover,
+.auto-back:hover,
 .stop:hover,
-.auto-next:hover {
+.auto-forward:hover {
 	background-color: #1b1f27;
 }
 label {
@@ -78,4 +78,3 @@ select {
 	border: whitesmoke solid 1px;
 	/* position: relative; */
 }
-
