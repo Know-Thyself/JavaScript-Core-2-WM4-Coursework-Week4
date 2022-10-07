@@ -37,13 +37,13 @@ const previous = (arr, index) => {
 
 const nextBtn = document.querySelector(".next");
 nextBtn.addEventListener("click", () => {
-	currentIndex = images.indexOf(image.src);
+  currentIndex = images.indexOf(image.src);
   image.src = images[next(images, currentIndex)];
 });
 
 const previousBtn = document.querySelector(".previous");
 previousBtn.addEventListener("click", () => {
-	currentIndex = images.indexOf(image.src);
+  currentIndex = images.indexOf(image.src);
   image.src = images[previous(images, currentIndex)];
 });
 
@@ -60,7 +60,7 @@ fwSelectEvent = () => {
   autoForwardBtn.removeEventListener("click", autoForwardEvent);
   if (forwardDelay.value !== "delay") {
     interval = setInterval(() => {
-			currentIndex = images.indexOf(image.src);
+      currentIndex = images.indexOf(image.src);
       image.src = images[next(images, currentIndex)];
     }, forwardDelay.value * 1000);
   }
@@ -79,7 +79,7 @@ backSelectEvent = () => {
   autoBackBtn.removeEventListener("click", autoBackEvent);
   if (backDelay.value !== "delay") {
     interval = setInterval(() => {
-			currentIndex = images.indexOf(image.src);
+      currentIndex = images.indexOf(image.src);
       image.src = images[previous(images, currentIndex)];
     }, backDelay.value * 1000);
   }
